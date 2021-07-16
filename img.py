@@ -120,7 +120,8 @@ try:
 				if priority_class != "": PC = f"/{priority_class}"
 				if minimized: MIN = "/MIN"
 				if maximized: MAX = "/MAX"
-				os.system(f'start "core {i}" {PC} {MAX} {MIN} cmd /C "cd /d {TD.name} & py core{i}.py')
+				if out_ext: EXT = out_ext
+				os.system(f'start "core {i}" {PC} {MAX} {MIN} cmd /C "cd /d {TD.name} & py core{i}.py {EXT}')
 				progress = get_progress(TD.name,cores,cors)
 				tqdm_p.n = progress
 				tqdm_p.refresh()
